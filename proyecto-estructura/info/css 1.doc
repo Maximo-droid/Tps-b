@@ -1,0 +1,70 @@
+    Vinculación externa
+<link href="css/estilos.css" rel="stylesheet">html
+Esta es la más utilizada ya que podemos escribir
+todos nuestros estilos en un archivo CSS y
+vincularlos al HTML usando la etiqueta <link>
+dentro del <head> de nuestro documento.
+ejem=
+<link rel="stylesheet" href="/public/css/style.css">
+
+dentro de style escribiremos selectores : en el head, body, fotter.
+------------------------------------------------------------------------------------------
+    Vinculación interna
+    A través de la etiqueta <style> dentro del <head>.
+    no recomendable.
+    head>
+<meta charset="UTF-8">
+<style>
+body {background: blue}
+</style>
+</head>
+------------------------------------------------------------------------------------------
+Usando el atributo style en cada elemento de
+nuestro HTML.
+eje=
+<p style="color: red">...</p>
+
+------------------------------------------------------------------------------------------
+
+Los selectores id solo deben ser usados en etiquetas especiales.
+No es una buena practica usar un selector sobre muchos elementos iguales.
+
+--------------------------------------------------------
+selectores de clase
+Este selector va a atrapar al elemento HTML que
+tenga asignado el atributo class con el valor
+correspondiente. Podemos asignarle la cantidad de
+clases que queramos a un mismo elemento. Para
+hacerlo, solo hace falta separarlas con un espacio.
+eje
+<h3 class="noticia destacada">Una noticia</h3>
+
+Para llamarlo desde el CSS usamos el # seguido del
+nombre del ID
+.noticia { font-size: 22px }
+--------------------------------------------------------
+selectores combinados
+Son la combinación de todos los anteriores, también
+podemos usar varios selectores del mismo tipo.
+En este ejemplo combinamos un selector de etiqueta
+con uno de clase.
+
+<h2 class="subtitulo">Un subtítulo</h2>html
+
+Para llamarlos hay que agregar un selector al lado
+del otro, respetando la sintaxis y sin espacios.
+
+h2.subtitulo { color: yellow }
+Usar con precaución.
+
+-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
