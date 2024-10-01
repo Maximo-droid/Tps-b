@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<%- include('./partials/head') %>
+	<%- include('./partials/head', 
+	{ title: 'Home' }) %>
+
 	<body>
 		<div class="container"> <!-- Contenedor ppal -->
-			<%- include('./partials/header' {
-				tittle : 'home'
-			}) %>
+			<%- include('./partials/header', 
+			{ title: 'Home' }) %>
+
 			<main> <!-- Cuerpo principal del sitio -->
 				<section class="product-container"><!-- Contenedor de todos los productos -->
 					<article class="producto"><!-- Contenedor de cada producto -->
