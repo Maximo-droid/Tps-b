@@ -1,35 +1,21 @@
-const path = require('path');
 const express = require('express');
-const PORT = 3000;
-const indexRoutes = require ('./routes/index.routes');
-const productsController = require('./controllers/productsController');
-const usersRoutes =  require('./routes/users.routes');
-
+const path = require('path');
 const app = express();
+const PORT = 3000;
 
+const indexRoutes = require('./routes/index.routes');
+const productsRoutes = require('./routes/products.routes');
+const usersRoutes = require('./routes/users.routes');
 
+//configuración de los recursos estáticos
+app.use(express.static(path.join(__dirname,'..', 'public')));
 
+//configuración del motor de plantillas
+app.set('view engine','ejs');
+app.set('views',path.join(__dirname, 'views'));
 
-//seteo los recursos estaticos
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use('/', indexRoutes);
+app.use('/products',productsRoutes);
+app.use('/users',usersRoutes);
 
-
-//seteo motor de plantilla
-app.set ('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-app.use('/users', usersRoutes);
-app.use('/products', productsController.detail);
-
-
-app.get('/', indexRoutes);
-
-
-
-
-app.get('login.html', (req,res) => res.sendFile(path.join(__dirname, '..', 'views','login.html')));
-app.get('products.html', (req,res) => res.sendFile(path.join(__dirname, '..', 'views','products.html')));
-app.get('register.html', (req,res) => res.sendFile(path.join(__dirname, '..', 'views','register.html')));
-
-
-app.listen(PORT, () => console.log('Server running in http://localhost:' + PORT));
+app.listen(PORT, () => 'Servidor corriendo en http://localhost:' + PORT)

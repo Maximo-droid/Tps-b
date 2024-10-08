@@ -1,49 +1,24 @@
 <!DOCTYPE html>
 <html>
-	<%- include('./partials/head') %>
+	<%- include('./partials/head',{
+		title : 'Home'
+	}) %>
 	<body>
 		<div class="container"> <!-- Contenedor ppal -->
-			<%- include('./partials/header' {
-				tittle : 'home'
-			}) %>
+			<%- include('./partials/header') %>
 			<main> <!-- Cuerpo principal del sitio -->
 				<section class="product-container"><!-- Contenedor de todos los productos -->
-					<article class="producto"><!-- Contenedor de cada producto -->
-						<img class="main-photo" src="img/img-phone-01.jpg" alt="">
-						<h2 class="name">Nombre del Producto</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-						<a class="more" href="#">ver más</a>
-					</article>
-					<article class="producto">
-						<img class="main-photo" src="img/img-phone-02.jpg" alt="">
-						<h2 class="name">Nombre del Producto</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-						<a class="more" href="#">ver más</a>
-					</article>
-					<article class="producto">
-						<img class="main-photo" src="img/img-phone-03.jpg" alt="">
-						<h2 class="name">Nombre del Producto</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-						<a class="more" href="#">ver más</a>
-					</article>
-					<article class="producto">
-						<img class="main-photo" src="img/img-phone-01.jpg" alt="">
-						<h2 class="name">Nombre del Producto</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-						<a class="more" href="#">ver más</a>
-					</article>
-					<article class="producto">
-						<img class="main-photo" src="img/img-phone-02.jpg" alt="">
-						<h2 class="name">Nombre del Producto</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-						<a class="more" href="#">ver más</a>
-					</article>
-					<article class="producto">
-						<img class="main-photo" src="img/img-phone-03.jpg" alt="">
-						<h2 class="name">Nombre del Producto</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-						<a class="more" href="#">ver más</a>
-					</article>
+					
+					<% products.forEach(({id, photo, title}) => { %>
+						<article class="producto"><!-- Contenedor de cada producto -->
+							<img class="main-photo" src="/img/<%= photo %>" alt="">
+							<h2 class="name"><%= title %></h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+							<a class="more" href="/products/<%= id %>">ver más</a>
+						</article>
+					<% }) %>
+					
+				
 				</section>
 				<aside class="left-column">
 					<h2>Tutoriales</h2>
